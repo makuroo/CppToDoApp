@@ -9,7 +9,6 @@ class TaskHandler
 {
 private:
     std::vector<Task> tasks;
-    TaskStorage* taskStorage;
 public:
     TaskHandler(/* args */);
     ~TaskHandler();

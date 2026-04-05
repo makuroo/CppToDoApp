@@ -8,6 +8,10 @@ Menu::Menu(){
     this->taskHandler = new TaskHandler();
 }
 
+Menu::~Menu(){
+    
+}
+
 void Menu::showMenu()
 {
     int choice = 0;

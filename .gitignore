@@ -88,6 +88,9 @@ Makefile
 .clang-tidy
 .clang-format
 
+# notes .txt
+ProjectNotes.txt
+
 # macOS
 .DS_Store
 .AppleDouble

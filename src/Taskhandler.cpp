@@ -11,7 +11,7 @@ void TaskHandler::addTask(const std::string &title)
     Task newTask(title);
     tasks.push_back(newTask);
     std::cout << "Task \"" << title << "\" added successfully!" << std::endl;
-    taskStorage->saveTasksToFile(tasks, "tasks.txt");
+    TaskStorage::saveTasksToFile(tasks, "tasks.txt");
     getchar(); // Wait for user input before clearing the screen
     Utilities::clearScreen();
 }
@@ -32,7 +32,7 @@ void TaskHandler::displayAllTasks() const
 void TaskHandler::displayCompletedTasks() const
 {
     Utilities::clearScreen();
-    ;
+    
     std::vector<Task> completedTask;
     for (size_t i = 0; i < tasks.size(); ++i)
     {
@@ -77,7 +77,7 @@ void TaskHandler::deleteTask(int index)
     {
         tasks.erase(tasks.begin() + index);
         std::cout << "Task deleted successfully!" << std::endl;
-        taskStorage->saveTasksToFile(tasks, "tasks.txt");
+        TaskStorage::saveTasksToFile(tasks, "tasks.txt");
         getchar();
         Utilities::clearScreen();
     }
@@ -94,7 +94,7 @@ void TaskHandler::markAsComplete(int index)
         if (i == index)
         {
             tasks[i].markAsCompleted();
-            taskStorage->saveTasksToFile(tasks, "tasks.txt");
+            TaskStorage::saveTasksToFile(tasks, "tasks.txt");
             std::cout << "Task marked as completed!" << std::endl;
             break;
         }
@@ -108,12 +108,10 @@ std::vector<Task> TaskHandler::getAllTasks() const
 
 TaskHandler::TaskHandler(/* args */)
 {
-    taskStorage = new TaskStorage;
-    tasks = taskStorage->loadTasksFromFile();
+    tasks = TaskStorage::loadTasksFromFile();
 }
 
 TaskHandler::~TaskHandler()
 {
     tasks.clear();
-    free(taskStorage);
 }

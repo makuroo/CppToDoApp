@@ -11,6 +11,7 @@ private:
     TaskHandler* taskHandler;
 public:
     Menu();
+    ~Menu();
     void showMenu();
     void showDisplayMenu();
     void displayTasks() const;
