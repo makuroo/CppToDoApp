@@ -1,0 +1,7 @@
+1. const in function mean promise to not mutate object it belong to
+
+2. Task::Task(const std::string& title) : title(title), isCompleted(false) {}  
+    title(title) mean default title value to title and iscompleted to false
+
+3. std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // flush bad input 
+    Needed if use cin.getline and need include limits
